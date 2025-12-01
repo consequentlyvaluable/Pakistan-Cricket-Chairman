@@ -163,15 +163,13 @@
         <h2>Squad Selection</h2>
         <button
           onclick="autoSelectSquad()"
-          class="action-button"
-          style="margin-bottom: 15px"
+          class="action-button spaced-action"
         >
           Auto-Select Squad
         </button>
         <button
           onclick="clearSelections()"
-          class="action-button"
-          style="margin-bottom: 15px; background-color: #f4a0a0"
+          class="action-button spaced-action danger-action"
         >
           Clear Selections
         </button>
@@ -232,7 +230,7 @@
             alt="Pitch Type"
           />
           <!-- Add the hidden select elements that are still referenced in the JS code -->
-          <select id="pitch-type" style="display: none">
+          <select id="pitch-type" class="hidden-control">
             <option value="Balanced">Balanced</option>
             <option value="Batting">Batting</option>
             <option value="Bowling">Bowling</option>
@@ -253,7 +251,7 @@
             alt="Ball Type"
           />
           <!-- Add the hidden select element -->
-          <select id="ball-type" style="display: none">
+          <select id="ball-type" class="hidden-control">
             <option value="Kookaburra">Kookaburra</option>
             <option value="Dukes">Dukes</option>
             <option value="SG Test">SG Test</option>
@@ -270,7 +268,7 @@
           <label for="bat-type">Bat Regs:</label>
           <img id="bat-image" src="images/bat_standard.png" alt="Bat Type" />
           <!-- Add the hidden select element -->
-          <select id="bat-type" style="display: none">
+          <select id="bat-type" class="hidden-control">
             <option value="Standard">Standard</option>
             <option value="Power Hitting">Power Hitting</option>
             <option value="Traditional">Traditional</option>

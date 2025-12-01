@@ -205,6 +205,14 @@ li:last-child {
   vertical-align: middle;
   font-size: 0.9em;
 }
+.action-button.spaced-action {
+  margin-bottom: 15px;
+}
+.action-button.danger-action {
+  background-color: #f4a0a0;
+  color: #333;
+  border-color: #d77c7c;
+}
 .player-actions button,
 .player-actions select {
   padding: 5px 10px;
@@ -234,6 +242,14 @@ li:last-child {
 .action-button:hover {
   background-color: #45a049;
 }
+.action-button.danger-action:hover:not(:disabled) {
+  background-color: #e68686;
+}
+.action-button.danger-action:disabled {
+  background-color: #f4c7c7;
+  color: #866;
+  border-color: #e3a4a4;
+}
 .select-button {
   background-color: #a2d8a2 !important;
   color: #333 !important;
@@ -249,6 +265,9 @@ li:last-child {
   color: #666;
   cursor: not-allowed;
   border-color: #bbb;
+}
+.hidden-control {
+  display: none;
 }
 .stadium-upgrades button.owned {
   background-color: #a2d8a2 !important;
@@ -937,6 +956,23 @@ input:checked + .slider:before {
   background-color: #2e7d32;
   color: #ffffff;
   border-color: #1b5e20;
+}
+
+.dark-mode .action-button.danger-action {
+  background-color: #d76d6d;
+  color: #fff;
+  border-color: #b94f4f;
+}
+
+.dark-mode .action-button.danger-action:hover:not(:disabled) {
+  background-color: #c25b5b;
+  border-color: #9f4242;
+}
+
+.dark-mode .action-button.danger-action:disabled {
+  background-color: #a05c5c;
+  color: #f0dada;
+  border-color: #8a4c4c;
 }
 
 .dark-mode .action-button:hover:not(:disabled),
