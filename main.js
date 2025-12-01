@@ -3350,6 +3350,9 @@ function initializeGame(forceReset = false) {
     console.log("Checkpoint 6: generateSchedule finished.");
     renderAllUI(); // Initial render
     console.log("Checkpoint 7: renderAllUI finished (new game setup).");
+
+    // Begin auto-saving for fresh games as well so progress is preserved
+    startAutoSave();
   }
 
   setupEventListeners(); // Attach event listeners regardless of load/new
