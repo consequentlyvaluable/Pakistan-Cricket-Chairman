@@ -3316,9 +3316,7 @@ function initializeGame(forceReset = false) {
   if (!forceReset && localStorage.getItem(SAVE_KEY)) {
     console.log("Checkpoint 2: Attempting loadGame().");
     try {
-      loadGame(); // loadGame now handles its own success/failure logging and resets
-      // If loadGame didn't throw an error or force a reset itself, assume it worked.
-      loadedSuccessfully = true;
+      loadedSuccessfully = loadGame(); // loadGame now handles its own success/failure logging and resets
       console.log("Checkpoint 3: loadGame() finished.");
     } catch (loadError) {
       console.error("Error during loadGame call in initializeGame:", loadError);
