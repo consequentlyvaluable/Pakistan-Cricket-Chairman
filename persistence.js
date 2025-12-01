@@ -180,32 +180,4 @@ function getDefaultTournamentYears() {
     "ICC World Test Championship": 2023,
   };
 }
-// Updated Stadium List
-function getDefaultStadiumsState() {
-  return {
-    "Gaddafi Stadium, Lahore": { floodlights: false, stands: 1, screen: false },
-    "National Stadium, Karachi": {
-      floodlights: false,
-      stands: 1,
-      screen: false,
-    },
-    "Rawalpindi Cricket Stadium": {
-      floodlights: false,
-      stands: 1,
-      screen: false,
-    },
-    "Multan Cricket Stadium": { floodlights: false, stands: 1, screen: false },
-    "Iqbal Stadium, Faisalabad": {
-      floodlights: false,
-      stands: 1,
-      screen: false,
-    },
-    "Bugti Stadium, Quetta": { floodlights: false, stands: 1, screen: false },
-    "Arbab Niaz Stadium, Peshawar": {
-      floodlights: false,
-      stands: 1,
-      screen: false,
-    }, // Added Peshawar
-  };
-}
 // getInitialPundits is defined in players.js
