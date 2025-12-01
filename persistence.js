@@ -2,6 +2,7 @@
 
 const SAVE_KEY = "pakistanCricketChairmanSave_v1"; // Use new game name
 const AUTO_SAVE_INTERVAL = 60000; // Auto-save every 60 seconds
+let skipSaveOnUnload = false; // Prevent saving during intentional reset
 
 function saveGame({ silent = false } = {}) {
   try {
@@ -157,9 +158,10 @@ function loadGame() {
 
 function resetGame() {
   if (confirm("Reset game?")) {
+    skipSaveOnUnload = true; // Do not auto-save while resetting
     // Stop auto-save before resetting
     stopAutoSave();
-    
+
     localStorage.removeItem(SAVE_KEY);
     logInfo("Game reset.");
     window.location.reload();
@@ -168,8 +170,13 @@ function resetGame() {
 
 // Start auto-save when window/tab is being closed to ensure game state is saved
 window.addEventListener("beforeunload", function () {
-  // Save game state before unloading
-  saveGame({ silent: true });
+  if (skipSaveOnUnload) return; // Explicit reset in progress
+
+  // Only save if a save already exists to avoid recreating after manual clearing
+  const existingSave = localStorage.getItem(SAVE_KEY);
+  if (existingSave) {
+    saveGame({ silent: true });
+  }
 });
 
 // Auto-load on page load is handled by initializeGame() in main.js
