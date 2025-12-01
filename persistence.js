@@ -3,7 +3,7 @@
 const SAVE_KEY = "pakistanCricketChairmanSave_v1"; // Use new game name
 const AUTO_SAVE_INTERVAL = 60000; // Auto-save every 60 seconds
 
-function saveGame() {
+function saveGame({ silent = false } = {}) {
   try {
     const saveData = {
       year: gameState.year,
@@ -29,19 +29,22 @@ function saveGame() {
       lastSaveTime: new Date().toISOString(), // Add timestamp for last save
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(saveData));
-    logSuccess("Game Saved!");
+    if (!silent) {
+      logSuccess("Game Saved!");
+    }
     return true;
   } catch (e) {
     console.error("Save Error:", e);
-    logError("Error saving.");
+    if (!silent) {
+      logError("Error saving.");
+    }
     return false;
   }
 }
 
 // Auto-save function that will be called on an interval
 function autoSave() {
-  saveGame();
-  // Don't show UI notification for auto-saves to avoid disrupting gameplay
+  saveGame({ silent: true });
 }
 
 // Initialize auto-save timer
@@ -164,9 +167,9 @@ function resetGame() {
 }
 
 // Start auto-save when window/tab is being closed to ensure game state is saved
-window.addEventListener('beforeunload', function() {
+window.addEventListener("beforeunload", function () {
   // Save game state before unloading
-  saveGame();
+  saveGame({ silent: true });
 });
 
 // Auto-load on page load is handled by initializeGame() in main.js
