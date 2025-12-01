@@ -570,6 +570,12 @@ function renderStadiumUpgradesUI() {
       justify-content: space-between;
       align-items: center;
     }
+
+    .stadium-header h3 {
+      color: #ffffff;
+      margin: 0;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    }
     
     .stadium-content {
       padding: 20px;
