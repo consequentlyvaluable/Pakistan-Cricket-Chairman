@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pakistan Cricket Chairman</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <img src="images/pcb_logo.png" alt="PCB Logo" id="main-logo" />
+        <span id="chairTitle">Pakistan Cricket Chairman</span>
+      </h1>
+
+      <!-- The 'Dark Mode' toggle -->
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle" />
+        <span class="slider round"></span>
+      </label>
+
+      <!-- The 'Chair Title' toggle -->
+      <label class="chairwoman-switch">
+        <input type="checkbox" id="chairTitleToggle" />
+        <span class="chairwoman-slider"></span>
+      </label>
+
+      <div id="status-bar">
+        <p>
+          <strong>Year:</strong> <span id="current-year">...</span> |
+          <strong>Budget:</strong> $<span id="budget-display">...</span>M |
+          <strong>Next Event:</strong> <span id="next-event">...</span>
+        </p>
+        <button
+          onclick="saveGame()"
+          class="game-control-button save-game-button"
+        >
+          Save Game
+        </button>
+        <button
+          onclick="loadGame()"
+          class="game-control-button load-game-button"
+        >
+          Load Game
+        </button>
+        <button
+          onclick="resetGame()"
+          class="game-control-button reset-game-button"
+        >
+          Reset Game
+        </button>
+      </div>
+
+      <div class="tabs">
+        <!-- Tab List -->
+        <button class="tab-button active" data-tab="dashboard">
+          Dashboard
+        </button>
+        <button class="tab-button" data-tab="squad">Squad Selection</button>
+        <button class="tab-button" data-tab="scouting">Scouting Report</button>
+        <button class="tab-button" data-tab="training">Training</button>
+        <button class="tab-button" data-tab="domestic">
+          Domestic Structure
+        </button>
+        <button class="tab-button" data-tab="facilities">
+          Finances & Facilities
+        </button>
+        <button class="tab-button" data-tab="history">History</button>
+        <button class="tab-button" data-tab="halloffame">Hall of Fame</button>
+      </div>
+
+      <!-- Dashboard Tab -->
+      <div id="dashboard" class="tab-content active">
+        <h2>Dashboard</h2>
+        <h3>Upcoming Schedule (<span id="schedule-year">...</span>)</h3>
+        <!-- Home Series Controls (Style moved to CSS) -->
+        <div id="home-series-controls">
+          <h4>Home Series Preparation</h4>
+          <div class="modern-select-container">
+            <label for="home-pitch-prep-select" class="modern-select-label"
+              >Prepare Pitch:</label
+            >
+            <select id="home-pitch-prep-select" class="modern-select">
+              <option value="balanced">Balanced</option>
+              <option value="batting">Batting Friendly (Flat)</option>
+              <option value="bowling">Bowling Friendly (Green/Dusty)</option>
+            </select>
+          </div>
+
+          <div class="modern-select-container">
+            <label for="roller-choice-select" class="modern-select-label"
+              >Use Roller:</label
+            >
+            <select id="roller-choice-select" class="modern-select">
+              <option value="standard">Standard</option>
+              <option value="heavy">Heavy Roller</option>
+              <option value="light">Light Roller</option>
+            </select>
+          </div>
+        </div>
+        <div id="schedule-list"><p>Loading...</p></div>
+        <button id="simulate-button" class="action-button">
+          Simulate Next Event
+        </button>
+
+        <!-- New Dashboard Widgets Grid -->
+        <div class="dashboard-widgets">
+          <!-- Recent Results Widget -->
+          <div class="dashboard-widget" id="recent-results-widget">
+            <h4>Recent Results</h4>
+            <div class="widget-content" id="recent-results-content">
+              <p>No recent matches.</p>
+            </div>
+          </div>
+
+          <!-- Financial Summary Widget -->
+          <div class="dashboard-widget" id="financial-widget">
+            <h4>Financial Summary</h4>
+            <div class="widget-content" id="financial-content">
+              <p>Budget: $<span id="widget-budget-display">...</span>M</p>
+              <p>
+                Last Transaction: <span id="widget-last-transaction">...</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Player Watch Widget -->
+          <div class="dashboard-widget" id="player-watch-widget">
+            <h4>Player Watch</h4>
+            <div class="widget-content" id="player-watch-content">
+              <p>No critical player updates.</p>
+            </div>
+          </div>
+
+          <!-- Pundit Corner Widget -->
+          <div class="dashboard-widget" id="pundit-widget">
+            <h4>Pundit Corner</h4>
+            <div class="widget-content" id="pundit-content">
+              <p>No pundit opinions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notifications Area -->
+        <div id="notifications-area">
+          <!-- Notifications will be inserted here -->
+        </div>
+
+        <!-- Traditional Microsoft Teams (now below widgets) -->
+        <h3 id="teamsTitle">Chairman's Microsoft Teams</h3>
+        <div id="message-log" class="message-log">Loading...</div>
+        <button
+          onclick="clearMessageLog()"
+          class="action-button clear-log-button"
+        >
+          Clear Log
+        </button>
+      </div>
+
+      <!-- Squad Selection Tab -->
+      <div id="squad" class="tab-content">
+        <h2>Squad Selection</h2>
+        <button
+          onclick="autoSelectSquad()"
+          class="action-button"
+          style="margin-bottom: 15px"
+        >
+          Auto-Select Squad
+        </button>
+        <button
+          onclick="clearSelections()"
+          class="action-button"
+          style="margin-bottom: 15px; background-color: #f4a0a0"
+        >
+          Clear Selections
+        </button>
+        <p>Select your squad (Max <span id="max-squad-size">15</span>).</p>
+        <h3>
+          National Squad (<span id="squad-count">0</span>/<span
+            id="max-squad-size-display"
+            >15</span
+          >)
+        </h3>
+        <ul id="national-squad-list">
+          <li>Select players...</li>
+        </ul>
+        <hr />
+        <h3>Domestic Player Pool</h3>
+        <ul id="domestic-pool-list">
+          <li>Loading players...</li>
+        </ul>
+      </div>
+
+      <!-- Scouting Report Tab -->
+      <div id="scouting" class="tab-content">
+        <h2>Scouting Report</h2>
+        <div id="scouting-report-content">
+          <p>Select the "[NEXT]" event on Dashboard.</p>
+        </div>
+      </div>
+
+      <!-- Training Tab -->
+      <div id="training" class="tab-content">
+        <h2>Player Training</h2>
+        <div class="bulk-training-controls">
+          <button onclick="bulkTrainFielding()" class="action-button">
+            Train All: Fielding
+          </button>
+          <button onclick="bulkTrainPrimaryRole()" class="action-button">
+            Train All: Primary Role
+          </button>
+          <button onclick="bulkTrainFitness()" class="action-button">
+            Train All: Fitness
+          </button>
+        </div>
+        <p>Assign training focus.</p>
+        <ul id="training-list">
+          <li>Select players for squad first...</li>
+        </ul>
+      </div>
+
+      <!-- Domestic Structure Tab -->
+      <div id="domestic" class="tab-content">
+        <h2>Domestic Cricket Structure</h2>
+        <p>Influence player development.</p>
+        <div class="domestic-option-item">
+          <label for="pitch-type">Pitch Focus:</label>
+          <img
+            id="pitch-image"
+            src="images/pitch_balanced.png"
+            alt="Pitch Type"
+          />
+          <!-- Add the hidden select elements that are still referenced in the JS code -->
+          <select id="pitch-type" style="display: none">
+            <option value="Balanced">Balanced</option>
+            <option value="Batting">Batting</option>
+            <option value="Bowling">Bowling</option>
+          </select>
+          <!-- Replace dropdown with segmented control -->
+          <div class="segmented-control pitch-control" id="pitch-control">
+            <button class="segmented-btn active" data-value="Balanced">
+              Balanced
+            </button>
+            <button class="segmented-btn" data-value="Batting">Batting</button>
+            <button class="segmented-btn" data-value="Bowling">Bowling</button>
+          </div>
+
+          <label for="ball-type">Ball Used:</label>
+          <img
+            id="ball-image"
+            src="images/ball_kookaburra.png"
+            alt="Ball Type"
+          />
+          <!-- Add the hidden select element -->
+          <select id="ball-type" style="display: none">
+            <option value="Kookaburra">Kookaburra</option>
+            <option value="Dukes">Dukes</option>
+            <option value="SG Test">SG Test</option>
+          </select>
+          <!-- Keep the segmented control for balls -->
+          <div class="segmented-control ball-control" id="ball-control">
+            <button class="segmented-btn active" data-value="Kookaburra">
+              Kookaburra
+            </button>
+            <button class="segmented-btn" data-value="Dukes">Dukes</button>
+            <button class="segmented-btn" data-value="SG Test">SG Test</button>
+          </div>
+
+          <label for="bat-type">Bat Regs:</label>
+          <img id="bat-image" src="images/bat_standard.png" alt="Bat Type" />
+          <!-- Add the hidden select element -->
+          <select id="bat-type" style="display: none">
+            <option value="Standard">Standard</option>
+            <option value="Power Hitting">Power Hitting</option>
+            <option value="Traditional">Traditional</option>
+          </select>
+          <!-- Keep the segmented control for bat types -->
+          <div class="segmented-control bat-control" id="bat-control">
+            <button class="segmented-btn active" data-value="Standard">
+              Standard
+            </button>
+            <button class="segmented-btn" data-value="Power Hitting">
+              Power
+            </button>
+            <button class="segmented-btn" data-value="Traditional">
+              Traditional
+            </button>
+          </div>
+
+          <p>
+            <strong>Current:</strong> Pitch:
+            <span id="current-pitch">...</span>, Ball:
+            <span id="current-ball">...</span>, Bat:
+            <span id="current-bat">...</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Finances & Facilities Tab -->
+      <div id="facilities" class="tab-content">
+        <h2>Finances & Facilities</h2>
+        <p>Manage budget & invest.</p>
+        <h3>Budget: $<span id="facilities-budget-display">...</span>M</h3>
+        <hr />
+
+        <div class="upgrade-section">
+          <h4>NCA Facilities</h4>
+          <img
+            src="images/nca_facilities.jpg"
+            alt="NCA Facilities"
+            class="facility-image"
+          />
+          <p>Improves domestic dev.</p>
+          <p>Level: <strong id="facility-level-display">1</strong></p>
+          <p>Upgrade Cost: $<span id="facility-upgrade-cost">?</span>M</p>
+          <button
+            id="upgrade-facility-button"
+            class="upgrade-action-button"
+            onclick="upgradeFacilities()"
+          >
+            Upgrade
+          </button>
+        </div>
+        <hr />
+
+        <div class="upgrade-section">
+          <h4>Coaching Institute</h4>
+          <img
+            src="images/coachingins.jpg"
+            alt="Coaching Institute"
+            class="facility-image"
+          />
+          <p>Improves player development and mentoring.</p>
+          <p>Level: <strong id="coaching-institute-level-display">1</strong></p>
+          <p>
+            Upgrade Cost: $<span id="coaching-institute-upgrade-cost">?</span>M
+          </p>
+          <button
+            id="upgrade-coaching-institute-button"
+            class="upgrade-action-button"
+            onclick="upgradeCoachingInstitute()"
+          >
+            Upgrade
+          </button>
+        </div>
+        <hr />
+        <div class="upgrade-section">
+          <h4>High Performance Institute</h4>
+          <img src="images/NHPC.jpg" alt="NHPC" class="facility-image" />
+          <p>Enhances elite player preparation and recovery.</p>
+          <p>Level: <strong id="high-performance-level-display">1</strong></p>
+          <p>
+            Upgrade Cost: $<span id="high-performance-upgrade-cost">?</span>M
+          </p>
+          <button
+            id="upgrade-high-performance-button"
+            class="upgrade-action-button"
+            onclick="upgradeHighPerformance()"
+          >
+            Upgrade
+          </button>
+        </div>
+
+        <div class="upgrade-section">
+          <h4>Coaching Staff</h4>
+          <img
+            src="images/coaching.jpg"
+            alt="Coaching Staff"
+            class="facility-image"
+          />
+          <p>Improves training effectiveness.</p>
+          <p>Level: <strong id="coach-level-display">1</strong></p>
+          <p>Upgrade Cost: $<span id="coach-upgrade-cost">?</span>M</p>
+          <button
+            id="upgrade-coach-button"
+            class="upgrade-action-button"
+            onclick="upgradeCoaching()"
+          >
+            Upgrade
+          </button>
+        </div>
+        <hr />
+        <h3>Stadium Upgrades</h3>
+        <div id="stadium-upgrades-list"><p>Loading...</p></div>
+      </div>
+
+      <!-- History Tab -->
+      <div id="history" class="tab-content">
+        <h2>Team History</h2>
+        <h3>
+          Bilateral Series (Last <span id="bilateral-history-limit">20</span>)
+        </h3>
+        <ul id="bilateral-history-list">
+          <li>No history yet...</li>
+        </ul>
+        <hr />
+        <h3>Match Scorecards</h3>
+        <div id="scorecard-container">
+          <!-- Replace dropdown with custom selector -->
+          <div class="match-selector-container">
+            <div class="match-selector-header">
+              <span>Select a match to view scorecard</span>
+              <button id="match-selector-toggle" class="match-selector-toggle">
+                <span class="match-selector-text">Choose match</span>
+                <svg class="match-selector-icon" viewBox="0 0 24 24">
+                  <path d="M7 10l5 5 5-5z"></path>
+                </svg>
+              </button>
+            </div>
+            <div id="match-selector-dropdown" class="match-selector-dropdown">
+              <!-- Will be populated with match options via JavaScript -->
+              <div class="match-option-empty">No matches available</div>
+            </div>
+          </div>
+
+          <div id="current-scorecard">
+            <p>Select a match to view scorecard</p>
+          </div>
+        </div>
+        <h3>Major Tournament Wins</h3>
+        <ul id="tournament-wins-list">
+          <li>No wins yet...</li>
+        </ul>
+      </div>
+
+      <!-- Hall of Fame Tab -->
+      <div id="halloffame" class="tab-content">
+        <h2>Pakistan Cricket Hall of Fame</h2>
+        <ul id="hall-of-fame-list">
+          <li>Loading...</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fireworks Animation Placeholder -->
+    <div id="fireworks-overlay" class="fireworks-overlay">
+      <img src="images/fireworks.gif" alt="Fireworks!" />
+    </div>
+
+    <script src="players.js"></script>
+    <script src="persistence.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

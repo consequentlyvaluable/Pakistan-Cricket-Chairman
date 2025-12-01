@@ -1,0 +1,1938 @@
+/* style.css */
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.container {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #004d00;
+  text-align: center;
+}
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+h1 img#main-logo {
+  height: 45px;
+  width: auto;
+  margin-right: 15px;
+  vertical-align: middle;
+}
+h1 span {
+  display: inline-block;
+}
+h4 {
+  margin-bottom: 0.5em;
+}
+#status-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  background-color: #fff; /* Ensure it has a background */
+}
+#status-bar p {
+  font-size: 0.95em;
+  margin-bottom: 10px;
+}
+#status-bar button {
+  margin-left: 15px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #004d00;
+  flex-wrap: wrap;
+}
+.tab-button {
+  padding: 10px 15px;
+  cursor: pointer;
+  border: none;
+  background-color: #eee;
+  margin: 5px 5px;
+  border-radius: 5px 5px 0 0;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  font-size: 0.9em;
+}
+.tab-button:hover,
+.tab-button.active {
+  background-color: #004d00;
+  color: #fff;
+}
+.tab-content {
+  display: none;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  background-color: #f9f9f9;
+}
+.tab-content.active {
+  display: block;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  border-bottom: 1px solid #eee;
+  padding: 10px 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+li:hover {
+  background-color: #f5f5f5;
+}
+li:last-child {
+  border-bottom: none;
+}
+.history-item {
+  font-size: 0.95em;
+  color: #333;
+  padding: 8px 5px;
+}
+.history-item .result-win {
+  color: green;
+  font-weight: bold;
+}
+.history-item .result-loss {
+  color: red;
+}
+.history-item .result-draw {
+  color: orange;
+}
+#bilateral-history-list li,
+#tournament-wins-list li {
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tournament-win-item .trophy {
+  margin-left: 8px;
+  font-size: 1.1em;
+}
+.player-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-right: 10px;
+  min-width: 250px;
+  margin-bottom: 5px;
+}
+.player-name {
+  font-weight: bold;
+  color: #006400;
+}
+.player-stats {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 3px;
+}
+.player-age {
+  font-size: 0.8em;
+  color: #777;
+}
+.player-attitude {
+  font-size: 0.8em;
+  font-style: italic;
+  margin-left: 5px;
+}
+.attitude-Volatile {
+  color: #cc3300;
+  font-weight: bold;
+}
+.attitude-Professional {
+  color: #006400;
+}
+.hof-list-item {
+  font-size: 1.1em;
+  padding: 12px 5px;
+  color: #004d00;
+  font-weight: bold;
+  border-bottom: 1px dashed #ccc;
+  justify-content: center;
+}
+.player-actions {
+  margin-left: auto;
+  padding-left: 10px;
+  flex-shrink: 0;
+  text-align: right;
+}
+.action-button,
+.upgrade-action-button {
+  padding: 8px 15px;
+  margin-left: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  margin-top: 5px;
+  vertical-align: middle;
+  font-size: 0.9em;
+}
+.player-actions button,
+.player-actions select {
+  padding: 5px 10px;
+  font-size: 1em;
+  margin-left: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  transition: background-color 0.2s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  margin-top: 5px;
+  vertical-align: middle;
+}
+.player-actions select {
+  background-color: #fff;
+}
+.upgrade-section button:not(:disabled),
+.stadium-upgrades button:not(:disabled):not(.owned),
+.action-button {
+  background-color: #4caf50;
+  color: white;
+  border-color: #388e3c;
+}
+.upgrade-section button:hover:not(:disabled),
+.stadium-upgrades button:hover:not(:disabled):not(.owned),
+.action-button:hover {
+  background-color: #45a049;
+}
+.select-button {
+  background-color: #a2d8a2 !important;
+  color: #333 !important;
+}
+.deselect-button {
+  background-color: #f4a0a0 !important;
+  color: #333 !important;
+}
+.upgrade-section button:disabled,
+.stadium-upgrades button:disabled:not(.owned),
+.action-button:disabled {
+  background-color: #cccccc;
+  color: #666;
+  cursor: not-allowed;
+  border-color: #bbb;
+}
+.stadium-upgrades button.owned {
+  background-color: #a2d8a2 !important;
+  color: #333 !important;
+  border-color: #8bc34a;
+  cursor: default;
+}
+.message-log {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fdfdfd;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.9em;
+  color: #444;
+  line-height: 1.5;
+}
+.log-entry {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+.log-image {
+  max-width: 40px;
+  max-height: 40px;
+  vertical-align: middle;
+  margin-right: 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.log-info {
+  color: #333;
+}
+.log-success {
+  color: #006400;
+}
+.log-warning {
+  color: #cc8400;
+}
+.log-error {
+  color: #c00;
+}
+.log-win {
+  color: #007700;
+  font-weight: bold;
+}
+.log-loss {
+  color: #d32f2f;
+}
+.log-draw {
+  color: #e67e22;
+}
+.log-trophy {
+  color: #b8860b;
+  font-weight: bold;
+}
+.log-budget {
+  color: #2980b9;
+}
+.log-attitude {
+  color: #9b59b6;
+  font-style: italic;
+}
+.log-retirement {
+  color: #7f8c8d;
+}
+.log-pundit {
+  color: #34495e;
+}
+.log-entry span {
+  margin-left: 5px;
+} /* Add space after timestamp */
+.domestic-option-item {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #eee;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.domestic-option-item img {
+  display: block;
+  /* Make similar size to stadium images, or adjust as desired */
+  max-width: 200px;
+  height: auto; /* Maintain aspect ratio */
+  margin: 5px auto 10px auto; /* Center image */
+  border-radius: 4px; /* Add rounded corners */
+  border: 1px solid #ddd; /* Add a subtle border */
+  background-color: #fff; /* Add white background in case of transparency */
+  padding: 2px; /* Small padding around image */
+}
+.domestic-option-item label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+.domestic-option-item select {
+  width: 80%; /* Adjust width */
+}
+.domestic-options label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+.domestic-options select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.schedule-item {
+  background-color: #e8f5e9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-left: 5px solid #004d00;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+.schedule-item:hover {
+  background-color: #dcf0df;
+}
+.schedule-opponent {
+  font-weight: bold;
+}
+.schedule-details {
+  font-size: 0.9em;
+  color: #333;
+  margin-left: 5px;
+}
+.progress-bar-container {
+  width: 60px;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  display: inline-block;
+  margin-left: 3px;
+  vertical-align: middle;
+}
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.5s ease;
+}
+.stat-value {
+  display: inline-block;
+  min-width: 40px;
+  text-align: right;
+  font-size: 0.95em;
+  margin-right: 5px;
+}
+.stat-label {
+  font-size: 0.85em;
+  color: #666;
+  display: inline-block;
+  min-width: 30px;
+}
+.bulk-training-controls {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.bulk-training-controls button {
+  margin: 0 10px;
+}
+
+/* Style for Home Series Controls (Moved from inline) */
+#home-series-controls {
+  display: none; /* Initially hidden */
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f8ff; /* Light blue background */
+}
+
+#home-series-controls label {
+  display: inline-block;
+  margin-right: 5px;
+}
+#home-series-controls select {
+  display: inline-block;
+  width: auto;
+  margin-right: 15px;
+}
+
+/* Style for Clear Log Button */
+.clear-log-button {
+  margin-top: 10px; /* Add some space above */
+  background-color: #f4a0a0; /* Use a distinct color */
+}
+
+.upgrade-section {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.upgrade-section p {
+  margin: 5px 0;
+}
+
+.stadium-image {
+  max-width: 150px; /* Control size */
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto; /* Center */
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.stadium-section {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #ccc;
+}
+.stadium-section h5 {
+  margin: 5px 0;
+  color: #006400;
+  text-align: left;
+}
+.stadium-upgrades button {
+  font-size: 0.9em;
+  margin-right: 5px;
+  margin-bottom: 5px;
+} /* Uses .upgrade-action-button class now */
+#scouting-report-content h4 {
+  text-align: left;
+}
+#scouting-report-content ul {
+  padding-left: 20px;
+  list-style: disc;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#scouting-report-content li {
+  border-bottom: none;
+  padding: 2px 0;
+  display: list-item;
+}
+.scouting-section {
+  margin-bottom: 15px;
+}
+.scouting-section strong {
+  color: #004d00;
+}
+/* Hall of Fame Images */
+#hall-of-fame-list li {
+  display: flex; /* Use flex for layout */
+  flex-direction: column; /* Stack image and name */
+  align-items: center; /* Center items */
+  text-align: center;
+  border-bottom: 1px dashed #ccc;
+  padding: 15px 5px;
+}
+.hof-image {
+  width: 80px; /* Adjust size */
+  height: 80px;
+  border-radius: 50%; /* Make images round */
+  object-fit: cover; /* Ensure image covers the circle */
+  margin-bottom: 8px;
+  border: 2px solid #004d00;
+}
+.hof-name {
+  font-size: 1.1em;
+  color: #004d00;
+  font-weight: bold;
+}
+
+/* Fireworks Animation Overlay */
+.fireworks-overlay {
+  position: fixed; /* Sit on top of everything */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
+}
+.fireworks-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain; /* Ensure full image is visible */
+}
+
+/* Player Speed Display */
+.player-speed {
+  font-size: 0.8em;
+  color: #555;
+  margin-left: 10px;
+  font-style: normal;
+}
+
+/* Pundit Comments */
+.log-pundit span {
+  /* Target the text span */
+  font-weight: bold; /* Make comment bold */
+}
+.pundit-source {
+  font-style: italic;
+  color: #666;
+  font-size: 0.9em;
+  margin-left: 5px;
+}
+.facility-image {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.scorecard-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+.scorecard-table th,
+.scorecard-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.scorecard-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.scorecard-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.scorecard-total {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.match-result {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px;
+  margin: 15px 0;
+  text-align: center;
+  border-radius: 4px;
+}
+/* The switch - the container around the checkbox */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* Hide the default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f6f6f6;
+  cursor: pointer;
+  transition: 0.4s;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+}
+
+/* Add chairwoman icons */
+.slider:before {
+  position: absolute;
+  content: "☀️";
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+  border-radius: 50%;
+  font-size: 16px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+/* When checkbox is checked, show dark mode chairwoman icon */
+input:checked + .slider {
+  background-color: #38404e;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+  content: "🌙";
+  background-color: #485265;
+}
+
+/* Improved dark mode colors with game-like vibrancy */
+.dark-mode {
+  background-color: #0a0a1a; /* Darker navy for better contrast */
+  color: #ffffff;
+}
+
+.dark-mode .container {
+  background-color: #1a1a2a;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid #2a2a3a;
+}
+
+/* Headers and Titles */
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4 {
+  color: #00ff9d;
+  text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+}
+
+/* Status Bar */
+.dark-mode #status-bar {
+  background-color: #1a1a2a;
+  border-bottom: 2px solid #00ff9d;
+}
+
+.dark-mode #status-bar p {
+  color: #ffffff;
+}
+
+.dark-mode #status-bar strong {
+  color: #00ff9d;
+}
+
+.dark-mode #status-bar button {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #404040;
+}
+
+.dark-mode #status-bar button:hover {
+  background-color: #3d3d3d;
+  border-color: #505050;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Tabs */
+.dark-mode .tabs {
+  border-bottom: 2px solid #00ff9d;
+}
+
+.dark-mode .tab-button {
+  background-color: #1a1a2a;
+  color: #ffffff;
+  border: 1px solid #00ff9d;
+  text-shadow: 0 0 5px rgba(0, 255, 157, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dark-mode .tab-button:hover {
+  background-color: #2a2a3a;
+  border-color: #00ff9d;
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+}
+
+.dark-mode .tab-button.active {
+  background-color: #00ff9d;
+  color: #0a0a1a;
+  border-color: #00ff9d;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+}
+
+.dark-mode .tab-content {
+  background-color: #1a1a2a;
+  border-color: #2a2a3a;
+  color: #ffffff;
+}
+
+/* Lists and Items */
+.dark-mode li {
+  border-bottom: 1px solid #2a2a3a;
+  color: #ffffff;
+  background-color: #1a1a2a;
+}
+
+.dark-mode li:hover {
+  background-color: #2a2a3a;
+}
+
+/* Player Info */
+.dark-mode .player-info {
+  background-color: #1a1a2a;
+  border: 1px solid #2a2a3a;
+}
+
+.dark-mode .player-name {
+  color: #00ff9d;
+}
+
+.dark-mode .player-stats {
+  color: #ffffff;
+}
+
+.dark-mode .player-age {
+  color: #cccccc;
+}
+
+.dark-mode .player-attitude {
+  color: #ffffff;
+}
+
+.dark-mode .attitude-Volatile {
+  color: #ff4444;
+}
+
+.dark-mode .attitude-Professional {
+  color: #00ff9d;
+}
+
+/* Microsoft Teams */
+.dark-mode .message-log {
+  background-color: #1a1a2a;
+  border-color: #2a2a3a;
+  color: #ffffff;
+}
+
+.dark-mode .log-entry {
+  border-color: #2a2a3a;
+  color: #ffffff;
+}
+
+.dark-mode .log-entry span {
+  color: #ffffff;
+}
+
+/* Special Log Colors */
+.dark-mode .log-success {
+  color: #00ff9d;
+  text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+}
+
+.dark-mode .log-warning {
+  color: #ffd700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.dark-mode .log-error {
+  color: #ff4444;
+  text-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+}
+
+.dark-mode .log-win {
+  color: #00ff9d;
+  text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+}
+
+.dark-mode .log-loss {
+  color: #ff4444;
+  text-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+}
+
+.dark-mode .log-draw {
+  color: #ffd700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+/* Schedule Items */
+.dark-mode .schedule-item {
+  background-color: #1a1a2a;
+  border-left-color: #00ff9d;
+  color: #ffffff;
+}
+
+.dark-mode .schedule-item:hover {
+  background-color: #2a2a3a;
+}
+
+.dark-mode .schedule-opponent {
+  color: #00ff9d;
+}
+
+.dark-mode .schedule-details {
+  color: #ffffff;
+}
+
+/* Progress Bars */
+.dark-mode .progress-bar-container {
+  background-color: #2a2a3a;
+}
+
+.dark-mode .progress-bar {
+  background-color: #00ff9d;
+}
+
+/* Upgrade Sections */
+.dark-mode .upgrade-section,
+.dark-mode .domestic-option-item {
+  background-color: #1a1a2a;
+  border-color: #2a2a3a;
+  color: #ffffff;
+}
+
+.dark-mode .upgrade-section p,
+.dark-mode .domestic-option-item p {
+  color: #ffffff;
+}
+
+.dark-mode .upgrade-section strong,
+.dark-mode .domestic-option-item strong {
+  color: #00ff9d;
+}
+
+/* Form Elements */
+.dark-mode select,
+.dark-mode input[type="text"],
+.dark-mode input[type="number"] {
+  background-color: #2a2a3a;
+  color: #ffffff;
+  border: 1px solid #3a3a4a;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%;
+  background-size: 0.65em auto;
+  padding-right: 2em;
+}
+
+.dark-mode select:hover,
+.dark-mode input[type="text"]:hover,
+.dark-mode input[type="number"]:hover {
+  border-color: #00ff9d;
+}
+
+.dark-mode select:focus,
+.dark-mode input[type="text"]:focus,
+.dark-mode input[type="number"]:focus {
+  border-color: #00ff9d;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 255, 157, 0.2);
+}
+
+.dark-mode select option {
+  background-color: #2a2a3a;
+  color: #ffffff;
+}
+
+/* Buttons */
+.dark-mode button {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #404040;
+}
+
+.dark-mode button:hover:not(:disabled) {
+  background-color: #3d3d3d;
+  border-color: #505050;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode button:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .action-button,
+.dark-mode .upgrade-action-button {
+  background-color: #2e7d32;
+  color: #ffffff;
+  border-color: #1b5e20;
+}
+
+.dark-mode .action-button:hover:not(:disabled),
+.dark-mode .upgrade-action-button:hover:not(:disabled) {
+  background-color: #388e3c;
+  border-color: #2e7d32;
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.4);
+}
+
+.dark-mode .select-button {
+  background-color: #2e7d32 !important;
+  color: #ffffff !important;
+  border-color: #1b5e20 !important;
+}
+
+.dark-mode .select-button:hover {
+  background-color: #388e3c !important;
+  border-color: #2e7d32 !important;
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.4) !important;
+}
+
+.dark-mode .deselect-button {
+  background-color: #c62828 !important;
+  color: #ffffff !important;
+  border-color: #b71c1c !important;
+}
+
+.dark-mode .deselect-button:hover {
+  background-color: #d32f2f !important;
+  border-color: #c62828 !important;
+  box-shadow: 0 0 10px rgba(211, 47, 47, 0.4) !important;
+}
+
+/* Scorecard Table */
+.dark-mode .scorecard-table th {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+}
+
+.dark-mode .scorecard-table td {
+  color: #ffffff;
+  border-color: #2a2a3a;
+}
+
+.dark-mode .scorecard-table tr:nth-child(even) {
+  background-color: #1a1a2a;
+}
+
+/* Hall of Fame */
+.dark-mode .hof-list-item {
+  color: #00ff9d;
+  border-bottom: 1px dashed #2a2a3a;
+}
+
+.dark-mode .hof-name {
+  color: #00ff9d;
+}
+
+/* Stadium Section */
+.dark-mode .stadium-section {
+  border-bottom: 1px solid #2a2a3a;
+}
+
+.dark-mode .stadium-section h5 {
+  color: #00ff9d;
+}
+
+/* Scouting Report */
+.dark-mode .scouting-section {
+  background-color: #1a1a2a;
+  border: 1px solid #2a2a3a;
+}
+
+.dark-mode .scouting-section strong {
+  color: #00ff9d;
+}
+
+/* Toggle Switches */
+.dark-mode .slider {
+  background-color: #2a2a3a;
+  border-color: #3a3a4a;
+}
+
+.dark-mode input:checked + .slider {
+  background-color: #00ff9d;
+}
+
+.dark-mode .chairwoman-slider {
+  background-color: #2a2a3a;
+  border-color: #3a3a4a;
+}
+
+.dark-mode .chairwoman-switch input:checked + .chairwoman-slider {
+  background-color: #00ff9d;
+}
+
+/* Add transition for smooth theme switching */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container,
+button,
+select,
+input,
+.tab-button,
+.player-actions button,
+.schedule-item {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .container {
+  background-color: #1e1e1e;
+  border-color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .tab-button {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #404040;
+}
+
+.dark-mode .tab-button:hover {
+  background-color: #3d3d3d;
+  border-color: #505050;
+}
+
+.dark-mode .tab-button.active {
+  background-color: #505050;
+  color: #ffffff;
+  border-color: #606060;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .player-actions button,
+.dark-mode .upgrade-section button:not(:disabled),
+.dark-mode .action-button {
+  background-color: #2e7d32;
+  color: #ffffff;
+  border-color: #1b5e20;
+}
+
+.dark-mode .player-actions button:hover,
+.dark-mode .upgrade-section button:hover:not(:disabled),
+.dark-mode .action-button:hover {
+  background-color: #388e3c;
+  border-color: #2e7d32;
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.4);
+}
+
+.dark-mode select,
+.dark-mode input[type="text"],
+.dark-mode input[type="number"] {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #404040;
+}
+
+.dark-mode .schedule-item {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+.dark-mode .schedule-item:hover {
+  background-color: #2d2d2d;
+}
+
+.dark-mode .message-log {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+.dark-mode .log-entry {
+  border-color: #333;
+}
+
+.dark-mode .scorecard-table th {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+}
+
+.dark-mode .scorecard-table tr:nth-child(even) {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .scorecard-table td {
+  border-color: #333;
+}
+
+/* Preserve specific log colors but adjust for dark mode */
+.dark-mode .log-success {
+  color: #4caf50;
+}
+
+.dark-mode .log-warning {
+  color: #ffa726;
+}
+
+.dark-mode .log-error {
+  color: #ef5350;
+}
+
+.dark-mode .log-win {
+  color: #4caf50;
+}
+
+.dark-mode .log-loss {
+  color: #ef5350;
+}
+
+.dark-mode .log-draw {
+  color: #ffa726;
+}
+
+/* Style the dark mode toggle switch in dark mode */
+.dark-mode .slider {
+  background-color: #2d2d2d;
+  border-color: #404040;
+}
+
+.dark-mode input:checked + .slider {
+  background-color: #3d8adb;
+}
+
+/* Chairwoman Toggle */
+.chairwoman-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+.chairwoman-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.chairwoman-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f6f6f6;
+  cursor: pointer;
+  transition: 0.4s;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+}
+
+.chairwoman-slider:before {
+  position: absolute;
+  content: "👔";
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+  border-radius: 50%;
+  font-size: 16px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.chairwoman-switch input:checked + .chairwoman-slider {
+  background-color: #38404e;
+}
+
+.chairwoman-switch input:checked + .chairwoman-slider:before {
+  transform: translateX(30px);
+  content: "👩‍💼";
+  background-color: #485265;
+}
+
+/* Home Series Controls in Dark Mode */
+.dark-mode #home-series-controls {
+  background-color: #1a1a2a;
+  border-color: #2a2a3a;
+  color: #ffffff;
+}
+
+.dark-mode #home-series-controls label {
+  color: #ffffff;
+}
+
+.dark-mode #home-series-controls select {
+  background-color: #2a2a3a;
+  color: #ffffff;
+  border-color: #3a3a4a;
+}
+
+/* Domestic Options in Dark Mode */
+.dark-mode .domestic-options label {
+  color: #ffffff;
+}
+
+.dark-mode .domestic-options select {
+  background-color: #2a2a3a;
+  color: #ffffff;
+  border-color: #3a3a4a;
+}
+
+.dark-mode .domestic-option-item select {
+  background-color: #2a2a3a;
+  color: #ffffff;
+  border-color: #3a3a4a;
+}
+
+/* Modern button styling for Save, Load, Reset Game buttons */
+.game-control-button {
+  padding: 8px 16px;
+  margin: 0 8px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.game-control-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.game-control-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.save-game-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.save-game-button:hover {
+  background-color: #43a047;
+}
+
+.load-game-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+.load-game-button:hover {
+  background-color: #1e88e5;
+}
+
+.reset-game-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.reset-game-button:hover {
+  background-color: #e53935;
+}
+
+/* Dark mode styles for game control buttons */
+.dark-mode .game-control-button {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .game-control-button:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .save-game-button {
+  background-color: #3d8c40;
+}
+
+.dark-mode .save-game-button:hover {
+  background-color: #357a38;
+}
+
+.dark-mode .load-game-button {
+  background-color: #1976d2;
+}
+
+.dark-mode .load-game-button:hover {
+  background-color: #1565c0;
+}
+
+.dark-mode .reset-game-button {
+  background-color: #d32f2f;
+}
+
+.dark-mode .reset-game-button:hover {
+  background-color: #c62828;
+}
+
+/* Segmented Controls - Modern dropdown alternative */
+.segmented-control {
+  display: flex;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 400px;
+}
+
+.segmented-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+  position: relative;
+  outline: none;
+}
+
+.segmented-btn:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background-color: #ddd;
+}
+
+.segmented-btn.active {
+  background-color: #004d00;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.segmented-btn:hover:not(.active) {
+  background-color: #e4e4e4;
+}
+
+/* Match Selector - Modern dropdown alternative */
+.match-selector-container {
+  margin: 15px 0;
+  position: relative;
+  width: 100%;
+}
+
+.match-selector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.match-selector-toggle {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  min-width: 200px;
+  transition: all 0.2s ease;
+}
+
+.match-selector-toggle:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
+
+.match-selector-text {
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.match-selector-icon {
+  width: 24px;
+  height: 24px;
+  fill: #666;
+  transition: transform 0.2s ease;
+}
+
+.match-selector-toggle[aria-expanded="true"] .match-selector-icon {
+  transform: rotate(180deg);
+}
+
+.match-selector-dropdown {
+  position: absolute;
+  width: 100%;
+  max-width: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  visibility: hidden;
+}
+
+.match-selector-dropdown.visible {
+  max-height: 300px;
+  opacity: 1;
+  visibility: visible;
+  overflow-y: auto;
+}
+
+.match-option {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.match-option:hover {
+  background-color: #f5f5f5;
+}
+
+.match-option:last-child {
+  border-bottom: none;
+}
+
+.match-option-empty {
+  padding: 15px;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+}
+
+/* Dark mode styles for the new components */
+.dark-mode .segmented-control {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+.dark-mode .segmented-btn {
+  color: #ddd;
+}
+
+.dark-mode .segmented-btn:not(:last-child)::after {
+  background-color: #444;
+}
+
+.dark-mode .segmented-btn.active {
+  background-color: #006600;
+  color: white;
+}
+
+.dark-mode .segmented-btn:hover:not(.active) {
+  background-color: #333;
+}
+
+.dark-mode .match-selector-toggle {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #ddd;
+}
+
+.dark-mode .match-selector-toggle:hover {
+  background-color: #333;
+}
+
+.dark-mode .match-selector-icon {
+  fill: #aaa;
+}
+
+.dark-mode .match-selector-dropdown {
+  background-color: #222;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .match-option {
+  border-bottom-color: #333;
+  color: #ddd;
+}
+
+.dark-mode .match-option:hover {
+  background-color: #333;
+}
+
+.dark-mode .match-option-empty {
+  color: #777;
+}
+
+/* Modern Select Styling */
+.modern-select-container {
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+  margin: 8px 0;
+}
+
+.modern-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  font-size: 14px;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.modern-select:hover {
+  border-color: #c0c0c0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.modern-select:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.modern-select-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #555;
+  pointer-events: none;
+}
+
+.modern-select-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Dark mode styling for modern selects */
+.dark-mode .modern-select {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.dark-mode .modern-select:hover {
+  border-color: #555;
+}
+
+.dark-mode .modern-select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+.dark-mode .modern-select-container::after {
+  border-top-color: #999;
+}
+
+.dark-mode .modern-select-label {
+  color: #ccc;
+}
+
+/* Override existing select styles */
+.player-actions select,
+#home-series-controls select,
+.domestic-option-item select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 8px 30px 8px 10px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #333;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23555' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.player-actions select:hover,
+#home-series-controls select:hover,
+.domestic-option-item select:hover {
+  border-color: #c0c0c0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.player-actions select:focus,
+#home-series-controls select:focus,
+.domestic-option-item select:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Dark mode overrides for existing selects */
+.dark-mode .player-actions select,
+.dark-mode #home-series-controls select,
+.dark-mode .domestic-option-item select {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23999' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.dark-mode .player-actions select:hover,
+.dark-mode #home-series-controls select:hover,
+.dark-mode .domestic-option-item select:hover {
+  border-color: #555;
+}
+
+.dark-mode .player-actions select:focus,
+.dark-mode #home-series-controls select:focus,
+.dark-mode .domestic-option-item select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+/* Dashboard Widgets Styles */
+.dashboard-widgets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.dashboard-widget {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.dashboard-widget:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.dashboard-widget h4 {
+  background-color: #004d00;
+  color: white;
+  margin: 0;
+  padding: 10px 15px;
+  font-size: 1em;
+  text-align: left;
+}
+
+.widget-content {
+  padding: 15px;
+  min-height: 100px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.widget-content p {
+  margin: 8px 0;
+}
+
+/* Recent Results Widget specific styles */
+#recent-results-widget .result-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+#recent-results-widget .result-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+#recent-results-widget .result-win {
+  color: green;
+  font-weight: bold;
+}
+
+#recent-results-widget .result-loss {
+  color: red;
+}
+
+#recent-results-widget .result-draw {
+  color: orange;
+}
+
+/* Financial Widget specific styles */
+#financial-widget .transaction-positive {
+  color: green;
+}
+
+#financial-widget .transaction-negative {
+  color: red;
+}
+
+/* Player Watch Widget specific styles */
+#player-watch-widget .player-alert {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+#player-watch-widget .alert-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+#player-watch-widget .alert-text {
+  flex: 1;
+}
+
+#player-watch-widget .alert-critical {
+  color: #cc3300;
+  font-weight: bold;
+}
+
+#player-watch-widget .alert-progress {
+  color: #006400;
+}
+
+#player-watch-widget .alert-info {
+  color: #0066cc;
+}
+
+/* Pundit Corner Widget specific styles */
+#pundit-widget .pundit-quote {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+#pundit-widget .pundit-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  float: left;
+}
+
+#pundit-widget .pundit-name {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Notification styles */
+#notifications-area {
+  margin: 15px 0;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  background-color: #f8f8f8;
+  border-left: 4px solid #004d00;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.notification-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.notification-message {
+  font-size: 0.9em;
+}
+
+.notification-close {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 0 8px;
+}
+
+.notification-close:hover {
+  color: #000;
+}
+
+.notification-action {
+  margin-top: 8px;
+}
+
+.notification-action button {
+  background-color: #004d00;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.notification-action button:hover {
+  background-color: #006600;
+}
+
+/* Notification types */
+.notification-critical {
+  border-left-color: #cc3300;
+}
+
+.notification-success {
+  border-left-color: #006400;
+}
+
+.notification-info {
+  border-left-color: #0066cc;
+}
+
+.notification-warning {
+  border-left-color: #ff9800;
+}
+
+/* Dark mode support for widgets */
+.dark-mode .dashboard-widget {
+  background-color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .dashboard-widget h4 {
+  background-color: #005700;
+}
+
+.dark-mode .widget-content {
+  color: #ddd;
+}
+
+.dark-mode #recent-results-widget .result-item,
+.dark-mode #player-watch-widget .player-alert {
+  border-bottom-color: #444;
+}
+
+.dark-mode .notification {
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .notification-close {
+  color: #aaa;
+}
+
+.dark-mode .notification-close:hover {
+  color: #fff;
+}
